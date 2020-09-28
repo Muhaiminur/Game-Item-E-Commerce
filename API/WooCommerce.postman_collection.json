@@ -1,0 +1,752 @@
+{
+	"info": {
+		"_postman_id": "28e8c9a4-b41d-486e-b847-dd1ce386d377",
+		"name": "WooCommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "JWT Authentication",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/jwt-auth/v1/token?username=admin&password=demo12345!@%23$%",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"jwt-auth",
+						"v1",
+						"token"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "admin"
+						},
+						{
+							"key": "password",
+							"value": "demo12345!@%23$%"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JWT Validate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9nYW1pbmdyZXNvdXJjZXMuYWZzYXJiZC5jb20iLCJpYXQiOjE1OTI2NjQ4NDYsIm5iZiI6MTU5MjY2NDg0NiwiZXhwIjoxNTkzMjY5NjQ2LCJkYXRhIjp7InVzZXIiOnsiaWQiOiIxIn19fQ.E2Q8YZyAEJz28mws2JG4aO6FHWd9l-n5xCyvGbDfWjU"
+					}
+				],
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/jwt-auth/v1/token/validate",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"jwt-auth",
+						"v1",
+						"token",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/gamingresources/api/v1/categories/",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"gamingresources",
+						"api",
+						"v1",
+						"categories",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Category Lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/gamingresources/api/v1/category-lists",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"gamingresources",
+						"api",
+						"v1",
+						"category-lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Category Products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "category_id",
+							"value": "26",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/gamingresources/api/v1/products",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"gamingresources",
+						"api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product Details",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "404",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/gamingresources/api/v1/product-details",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"gamingresources",
+						"api",
+						"v1",
+						"product-details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "razonpro@mailinator.com",
+							"description": "You may use Email or Username",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "demo",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/gamingresources/api/v1/login",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"gamingresources",
+						"api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "full_name",
+							"value": "Boka Cuuu The",
+							"type": "text"
+						},
+						{
+							"key": "user_email",
+							"value": "bokaCuuu@akta.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "demo",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "123456789",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/gamingresources/api/v1/register",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"gamingresources",
+						"api",
+						"v1",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9nYW1pbmdyZXNvdXJjZXMuYWZzYXJiZC5jb20iLCJpYXQiOjE1OTI5NDExNTMsIm5iZiI6MTU5Mjk0MTE1MywiZXhwIjoxNTkzNTQ1OTUzLCJkYXRhIjp7InVzZXIiOnsiaWQiOiIxIn19fQ.ew_D5KEO-_qPsWsonc2D2sIZAFx2hqQ-a98dCbL4V38",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "customer_id",
+							"value": "19",
+							"type": "text"
+						},
+						{
+							"key": "customer_email",
+							"value": "razonpro@mailinator.com",
+							"type": "text"
+						},
+						{
+							"key": "product_id",
+							"value": "404",
+							"type": "text"
+						},
+						{
+							"key": "listid",
+							"value": "418",
+							"type": "text"
+						},
+						{
+							"key": "payment_type",
+							"value": "bKash",
+							"type": "text"
+						},
+						{
+							"key": "mobile_number",
+							"value": "01740000011",
+							"type": "text"
+						},
+						{
+							"key": "transaction_id",
+							"value": "DXXF43845486",
+							"type": "text"
+						},
+						{
+							"key": "account_email_username",
+							"value": "samsuvai@vai.com",
+							"type": "text"
+						},
+						{
+							"key": "account_passord",
+							"value": "SamsuVai123",
+							"type": "text"
+						},
+						{
+							"key": "user_game_id",
+							"value": "243534546",
+							"type": "text"
+						},
+						{
+							"key": "user_game_nickname",
+							"value": "Sumsu",
+							"type": "text"
+						},
+						{
+							"key": "customer_note",
+							"value": "Lorem ipsum dolor sit amiti,",
+							"type": "text"
+						},
+						{
+							"key": "device_id",
+							"value": "android_device_id",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/gamingresources/api/v1/create-order",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"gamingresources",
+						"api",
+						"v1",
+						"create-order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order Lists",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "customer_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "customer_email",
+							"value": "KopaSamsu@mailinator.com",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/gamingresources/api/v1/order-lists",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"gamingresources",
+						"api",
+						"v1",
+						"order-lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order View",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "customer_id",
+							"value": "29",
+							"type": "text"
+						},
+						{
+							"key": "customer_email",
+							"value": "customer_1@gamingresources.com",
+							"type": "text"
+						},
+						{
+							"key": "order_id",
+							"value": "520",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/gamingresources/api/v1/order-view",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"gamingresources",
+						"api",
+						"v1",
+						"order-view"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Available Payment Gateways",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "total_amount_to_pay",
+							"value": "2000",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/gamingresources/api/v1/available-payment-gateways",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"gamingresources",
+						"api",
+						"v1",
+						"available-payment-gateways"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Profile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "customer_id",
+							"value": "11",
+							"type": "text"
+						},
+						{
+							"key": "customer_email",
+							"value": "bokacuuu@akta.com",
+							"type": "text"
+						},
+						{
+							"key": "full_name",
+							"value": "Boka Cuuu",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "123456789",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/gamingresources/api/v1/edit-profile",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"gamingresources",
+						"api",
+						"v1",
+						"edit-profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lost Password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "customer_login",
+							"value": "razonpro@mailinator.com",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/gamingresources/api/v1/lost-password",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"gamingresources",
+						"api",
+						"v1",
+						"lost-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "How To Pay Page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/gamingresources/api/v1/how-to-pay",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"gamingresources",
+						"api",
+						"v1",
+						"how-to-pay"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contact Us Page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/gamingresources/api/v1/contact-us",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"gamingresources",
+						"api",
+						"v1",
+						"contact-us"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Privacy Policy Page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/gamingresources/api/v1/privacy-policy",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"gamingresources",
+						"api",
+						"v1",
+						"privacy-policy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Sliders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://gamingresources.afsarbd.com/wp-json/gamingresources/api/v1/sliders",
+					"protocol": "http",
+					"host": [
+						"gamingresources",
+						"afsarbd",
+						"com"
+					],
+					"path": [
+						"wp-json",
+						"gamingresources",
+						"api",
+						"v1",
+						"sliders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUSH NOTIFICATIOn",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "key=AAAANmem7dY:APA91bGKCa91mNFu-Eq9BQ-DJ-zulZO1jvqZIffCUB0Ab6B7xMqs0wvOXfUtPbVRVEMcAVzsOldU0p3eeFlz_c2Fmln4si0xcC84joaUXgDJxXGAq16y7mq6YC_tCD90Iqvzn7pZSk3v",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"to\": \"eSNovONUTlCyursIor-IwC:APA91bG2XiH3jseyzZfjWhjOURYRziJaBM-KwZNtw59TmrGHC84xu2FFOfqLZ1yArQntfhnSZ0-3XuIgKWwb3eZj3U-N3iIw2DSOBF6CXb1hcWs4RqvOm_Nq5CuiFYGpNwJx6nKZoSN2\",\r\n    \"priority\": \"high\",\r\n    \"data\": {\r\n        \"body\": \"এ নিয়ে এই ভাইরাসে আক্রান্ত হয়ে দেশে ছয়জনের মৃত্যু হ স্বাস্থ্যমন্ত্রী।\",\r\n        \"title\": \"করোনাভাইরাসে দেশে আরও একজনের মৃত্যু: স্বাস্থ্যমন্ত্রী\",\r\n        \"image_url\": \"http://www.gentertainmentbd.club/wp-content/uploads/2019/10/cropped-gtech-2-232x77.png\",\r\n        \"big_text\": \"\",\r\n        \"metadataBrowse\": \"EXTERNAL\",\r\n        \"metadata\": \"http://www.fishbangla.com/\",\r\n        \"icon_path\": \"http://www.radiogbd.com/images/logo.png\"\r\n    }\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "https://fcm.googleapis.com/fcm/send",
+					"protocol": "https",
+					"host": [
+						"fcm",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"fcm",
+						"send"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

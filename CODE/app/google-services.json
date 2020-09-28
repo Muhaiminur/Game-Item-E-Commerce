@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "233667227094",
+    "firebase_url": "https://gaming-resources.firebaseio.com",
+    "project_id": "gaming-resources",
+    "storage_bucket": "gaming-resources.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:233667227094:android:eff5e967c7106813cd0877",
+        "android_client_info": {
+          "package_name": "com.gaming_resourcesbd.gamingresources"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "233667227094-fao4cmq7sfnhbetlfu7gsinncpf1ostl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs8qFZUCqEpA4aqJ2S9shPy3nabZ3ovI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "233667227094-fao4cmq7sfnhbetlfu7gsinncpf1ostl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.gaming_resourcesbd.gamingresources.FRAGMENT.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/frag_subcategory"
+        android:name="com.gaming_resourcesbd.gamingresources.FRAGMENT.SubCategoryFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_sub_category" />
+    <fragment
+        android:id="@+id/frag_product_details"
+        android:name="com.gaming_resourcesbd.gamingresources.FRAGMENT.ProductDetails"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_product_details" />
+    <fragment
+        android:id="@+id/frag_login"
+        android:name="com.gaming_resourcesbd.gamingresources.FRAGMENT.LoginPage"
+        android:label="@string/menu_login"
+        tools:layout="@layout/fragment_login_page" />
+    <fragment
+        android:id="@+id/frag_registration"
+        android:name="com.gaming_resourcesbd.gamingresources.FRAGMENT.RegistrationPage"
+        android:label="@string/regis_string"
+        tools:layout="@layout/fragment_registration_page" />
+    <fragment
+        android:id="@+id/frag_history"
+        android:name="com.gaming_resourcesbd.gamingresources.FRAGMENT.OrderHistory"
+        android:label="@string/history_string"
+        tools:layout="@layout/fragment_order_history" />
+
+    <fragment
+        android:id="@+id/frag_user"
+        android:name="com.gaming_resourcesbd.gamingresources.FRAGMENT.ProfileEdit"
+        android:label="@string/update_string"
+        tools:layout="@layout/fragment_profile_edit" />
+    <fragment
+        android:id="@+id/frag_contact"
+        android:name="com.gaming_resourcesbd.gamingresources.FRAGMENT.ContactPage"
+        android:label="@string/contact_string"
+        tools:layout="@layout/fragment_contact_page" />
+    <fragment
+        android:id="@+id/frag_privacy"
+        android:name="com.gaming_resourcesbd.gamingresources.FRAGMENT.PrivacyPage"
+        android:label="@string/privacy_policy_string"
+        tools:layout="@layout/fragment_privacy_page" />
+
+
+</navigation>
