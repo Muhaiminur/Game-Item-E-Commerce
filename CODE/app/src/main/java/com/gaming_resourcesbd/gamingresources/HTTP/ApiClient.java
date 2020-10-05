@@ -7,7 +7,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
-    public static final String BASE_URL = "http://gamingresources.afsarbd.com/wp-json/gamingresources/api/v1/";
+    public static final String BASE_URL = "https://api.gamingresources.online/wp-json/gamingresources/api/v1/";
 
     private static Retrofit retrofit = null;
 
