@@ -23,6 +23,7 @@ import com.gaming_resourcesbd.gamingresources.HTTP.ApiClient;
 import com.gaming_resourcesbd.gamingresources.HTTP.ApiInterface;
 import com.gaming_resourcesbd.gamingresources.LIBRARY.KeyWord;
 import com.gaming_resourcesbd.gamingresources.LIBRARY.Utility;
+import com.gaming_resourcesbd.gamingresources.MODEL.GET_APIERROR;
 import com.gaming_resourcesbd.gamingresources.MODEL.GET_HISTORY;
 import com.gaming_resourcesbd.gamingresources.MODEL.GET_PRODUCTDETAILS;
 import com.gaming_resourcesbd.gamingresources.MODEL.GET_USER;
@@ -110,7 +111,13 @@ public class RegistrationPage extends Fragment {
                                     showDialog(context.getResources().getString(R.string.reg_success_string));
                                 }
                             } else {
-                                utility.showDialog(getResources().getString(R.string.try_again_string));
+                                Gson gson = new Gson();
+                                GET_APIERROR apierror = gson.fromJson(response.body(), GET_APIERROR.class);
+                                if (apierror != null) {
+                                    utility.showDialog(apierror.getMessage());
+                                } else {
+                                    utility.showDialog(apierror.getMessage());
+                                }
                             }
                         } catch (Exception ex) {
                             utility.logger(ex.toString());

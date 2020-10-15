@@ -18,6 +18,7 @@ import com.gaming_resourcesbd.gamingresources.HTTP.ApiClient;
 import com.gaming_resourcesbd.gamingresources.HTTP.ApiInterface;
 import com.gaming_resourcesbd.gamingresources.LIBRARY.Utility;
 import com.gaming_resourcesbd.gamingresources.MODEL.Banner_Data;
+import com.gaming_resourcesbd.gamingresources.MODEL.GET_APIERROR;
 import com.gaming_resourcesbd.gamingresources.MODEL.GET_CATEGORY2;
 import com.gaming_resourcesbd.gamingresources.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -69,7 +70,7 @@ public class LandingPage extends AppCompatActivity {
                             }
                         });
             }
-            utility.logger("fcm "+utility.getFirebaseToken());
+            utility.logger("fcm " + utility.getFirebaseToken());
         } catch (Exception e) {
             Log.d("Error Line Number", Log.getStackTraceString(e));
         }
@@ -115,7 +116,13 @@ public class LandingPage extends AppCompatActivity {
                                 }
                                 initial_banner();
                             } else {
-                                utility.showDialog(getResources().getString(R.string.try_again_string));
+                                Gson gson = new Gson();
+                                GET_APIERROR apierror = gson.fromJson(response.body(), GET_APIERROR.class);
+                                if (apierror != null) {
+                                    utility.showDialog(apierror.getMessage());
+                                } else {
+                                    utility.showDialog(apierror.getMessage());
+                                }
                             }
                         } catch (Exception ex) {
                             utility.logger(ex.toString());
@@ -158,7 +165,13 @@ public class LandingPage extends AppCompatActivity {
                                 startActivity(new Intent(LandingPage.this, MainActivity.class));
                                 finish();
                             } else {
-                                utility.showDialog(getResources().getString(R.string.try_again_string));
+                                Gson gson = new Gson();
+                                GET_APIERROR apierror = gson.fromJson(response.body(), GET_APIERROR.class);
+                                if (apierror != null) {
+                                    utility.showDialog(apierror.getMessage());
+                                } else {
+                                    utility.showDialog(apierror.getMessage());
+                                }
                             }
                         } catch (Exception ex) {
                             utility.logger(ex.toString());

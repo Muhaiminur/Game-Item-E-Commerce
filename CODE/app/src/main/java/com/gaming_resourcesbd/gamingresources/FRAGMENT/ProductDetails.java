@@ -29,6 +29,7 @@ import com.gaming_resourcesbd.gamingresources.HTTP.ApiClient;
 import com.gaming_resourcesbd.gamingresources.HTTP.ApiInterface;
 import com.gaming_resourcesbd.gamingresources.LIBRARY.KeyWord;
 import com.gaming_resourcesbd.gamingresources.LIBRARY.Utility;
+import com.gaming_resourcesbd.gamingresources.MODEL.GET_APIERROR;
 import com.gaming_resourcesbd.gamingresources.MODEL.GET_PRODUCTDETAILS;
 import com.gaming_resourcesbd.gamingresources.MODEL.GET_SUBCATEGORY;
 import com.gaming_resourcesbd.gamingresources.MODEL.GET_USER;
@@ -85,58 +86,76 @@ public class ProductDetails extends Fragment {
                         if (user != null && !TextUtils.isEmpty(user.getCustomerId().toString()) && !TextUtils.isEmpty(user.getCustomerEmail())) {
                             if (!TextUtils.isEmpty(product_id)) {
                                 if (!TextUtils.isEmpty(price_id)) {
-                                    if (!TextUtils.isEmpty(detailsBinding.orderMobile.getText().toString())) {
-                                        if (!TextUtils.isEmpty(detailsBinding.orderTransaction.getText().toString())) {
-                                            SEND_ORDER sendOrder = new SEND_ORDER();
-                                            sendOrder.setCustomer_id(user.getCustomerId().toString());
-                                            sendOrder.setCustomer_email(user.getCustomerEmail().toString());
-                                            sendOrder.setProduct_id(product_id);
-                                            sendOrder.setListid(price_id);
-                                            sendOrder.setPayment_type("bKash");
-                                            sendOrder.setMobile_number(detailsBinding.orderMobile.getText().toString());
-                                            sendOrder.setTransaction_id(detailsBinding.orderTransaction.getText().toString());
-                                            if (!TextUtils.isEmpty(detailsBinding.orderInput1.getText().toString())) {
-                                                if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.INAGAME)) {
-                                                    sendOrder.setAccount_email_username(detailsBinding.orderInput1.getText().toString());
-                                                } else if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.UID)) {
-                                                    sendOrder.setUser_game_id(detailsBinding.orderInput1.getText().toString());
-                                                }
-                                            } else {
-                                                if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.INAGAME)) {
-                                                    sendOrder.setAccount_email_username("");
-                                                } else if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.UID)) {
-                                                    sendOrder.setUser_game_id("");
-                                                }
+                                    if (!TextUtils.isEmpty(detailsBinding.orderInput1.getText().toString())) {
+                                        if (!TextUtils.isEmpty(detailsBinding.orderInput2.getText().toString())) {
+                                            if (!TextUtils.isEmpty(detailsBinding.orderMobile.getText().toString())) {
+                                                if (!TextUtils.isEmpty(detailsBinding.orderTransaction.getText().toString())) {
+                                                    SEND_ORDER sendOrder = new SEND_ORDER();
+                                                    sendOrder.setCustomer_id(user.getCustomerId().toString());
+                                                    sendOrder.setCustomer_email(user.getCustomerEmail().toString());
+                                                    sendOrder.setProduct_id(product_id);
+                                                    sendOrder.setListid(price_id);
+                                                    sendOrder.setPayment_type("bKash");
+                                                    sendOrder.setMobile_number(detailsBinding.orderMobile.getText().toString());
+                                                    sendOrder.setTransaction_id(detailsBinding.orderTransaction.getText().toString());
+                                                    if (!TextUtils.isEmpty(detailsBinding.orderInput1.getText().toString())) {
+                                                        if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.INAGAME)) {
+                                                            sendOrder.setAccount_email_username(detailsBinding.orderInput1.getText().toString());
+                                                        } else if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.UID)) {
+                                                            sendOrder.setUser_game_id(detailsBinding.orderInput1.getText().toString());
+                                                        }
+                                                    } else {
+                                                        if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.INAGAME)) {
+                                                            sendOrder.setAccount_email_username("");
+                                                        } else if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.UID)) {
+                                                            sendOrder.setUser_game_id("");
+                                                        }
 
-                                            }
-                                            if (!TextUtils.isEmpty(detailsBinding.orderInput2.getText().toString())) {
-                                                if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.INAGAME)) {
-                                                    sendOrder.setAccount_passord(detailsBinding.orderInput2.getText().toString());
-                                                } else if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.UID)) {
-                                                    sendOrder.setUser_game_nickname(detailsBinding.orderInput2.getText().toString());
+                                                    }
+                                                    if (!TextUtils.isEmpty(detailsBinding.orderInput2.getText().toString())) {
+                                                        if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.INAGAME)) {
+                                                            sendOrder.setAccount_passord(detailsBinding.orderInput2.getText().toString());
+                                                        } else if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.UID)) {
+                                                            sendOrder.setUser_game_nickname(detailsBinding.orderInput2.getText().toString());
+                                                        }
+                                                    } else {
+                                                        if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.INAGAME)) {
+                                                            sendOrder.setAccount_passord("");
+                                                        } else if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.UID)) {
+                                                            sendOrder.setUser_game_nickname("");
+                                                        }
+                                                    }
+                                                    if (!TextUtils.isEmpty(detailsBinding.orderMessage.getText().toString())) {
+                                                        sendOrder.setCustomer_note(detailsBinding.orderMessage.getText().toString());
+                                                    } else {
+                                                        sendOrder.setCustomer_note("");
+                                                    }
+                                                    sendOrder.setDevice_id(utility.getFirebaseToken());
+                                                    order_confirms(sendOrder);
+                                                    //order_confirms(new SEND_ORDER(, , product_id, price_id, ));
+                                                } else {
+                                                    detailsBinding.orderTransaction.setError(getResources().getString(R.string.order_tarn_string));
+                                                    detailsBinding.orderTransaction.requestFocusFromTouch();
                                                 }
                                             } else {
-                                                if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.INAGAME)) {
-                                                    sendOrder.setAccount_passord("");
-                                                } else if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.UID)) {
-                                                    sendOrder.setUser_game_nickname("");
-                                                }
+                                                detailsBinding.orderMobile.setError(getResources().getString(R.string.order_mbl_string));
+                                                detailsBinding.orderMobile.requestFocusFromTouch();
                                             }
-                                            if (!TextUtils.isEmpty(detailsBinding.orderMessage.getText().toString())) {
-                                                sendOrder.setCustomer_note(detailsBinding.orderMessage.getText().toString());
-                                            } else {
-                                                sendOrder.setCustomer_note("");
-                                            }
-                                            sendOrder.setDevice_id(utility.getFirebaseToken());
-                                            order_confirms(sendOrder);
-                                            //order_confirms(new SEND_ORDER(, , product_id, price_id, ));
                                         } else {
-                                            detailsBinding.orderTransaction.setError(getResources().getString(R.string.order_tarn_string));
-                                            detailsBinding.orderTransaction.requestFocusFromTouch();
+                                            if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.INAGAME)) {
+                                                detailsBinding.orderInput2.setError(getResources().getString(R.string.order_ingame2_string));
+                                            } else if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.UID)) {
+                                                detailsBinding.orderInput2.setError(getResources().getString(R.string.order_uid2_string));
+                                            }
+                                            detailsBinding.orderInput2.requestFocusFromTouch();
                                         }
                                     } else {
-                                        detailsBinding.orderMobile.setError(getResources().getString(R.string.order_mbl_string));
-                                        detailsBinding.orderMobile.requestFocusFromTouch();
+                                        if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.INAGAME)) {
+                                            detailsBinding.orderInput1.setError(getResources().getString(R.string.order_ingame1_string));
+                                        } else if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.UID)) {
+                                            detailsBinding.orderInput1.setError(getResources().getString(R.string.order_uid1_string));
+                                        }
+                                        detailsBinding.orderInput1.requestFocusFromTouch();
                                     }
                                 } else {
                                     utility.showDialog(context.getResources().getString(R.string.order_product_string));
@@ -197,14 +216,14 @@ public class ProductDetails extends Fragment {
                                         detailsBinding.productDetails.setText(Html.fromHtml(productDetails.getProductdescription()));
                                     }
                                     if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.INAGAME)) {
-                                        detailsBinding.orderInput1.setHint(context.getResources().getString(R.string.order_ingame1_string));
-                                        detailsBinding.orderInput2.setHint(context.getResources().getString(R.string.order_ingame2_string));
+                                        detailsBinding.orderInput1Hint.setHint(context.getResources().getString(R.string.order_ingame1_string));
+                                        detailsBinding.orderInput2Hint.setHint(context.getResources().getString(R.string.order_ingame2_string));
                                     } else if (productDetails.getTopUpType().equalsIgnoreCase(KeyWord.UID)) {
-                                        detailsBinding.orderInput1.setHint(context.getResources().getString(R.string.order_uid1_string));
-                                        detailsBinding.orderInput2.setHint(context.getResources().getString(R.string.order_uid2_string));
+                                        detailsBinding.orderInput1Hint.setHint(context.getResources().getString(R.string.order_uid1_string));
+                                        detailsBinding.orderInput2Hint.setHint(context.getResources().getString(R.string.order_uid2_string));
                                     } else {
-                                        detailsBinding.orderInput1.setVisibility(View.GONE);
-                                        detailsBinding.orderInput2.setVisibility(View.GONE);
+                                        detailsBinding.orderInput1Hint.setVisibility(View.GONE);
+                                        detailsBinding.orderInput2Hint.setVisibility(View.GONE);
                                     }
                                     if (productDetails.getProductpricelists().size() > 0) {
                                         ArrayList<CheckBox> mCheckBoxes = new ArrayList<CheckBox>();
@@ -241,7 +260,13 @@ public class ProductDetails extends Fragment {
                                     }
                                 }
                             } else {
-                                utility.showDialog(getResources().getString(R.string.try_again_string));
+                                Gson gson = new Gson();
+                                GET_APIERROR apierror = gson.fromJson(response.body(), GET_APIERROR.class);
+                                if (apierror != null) {
+                                    utility.showDialog(apierror.getMessage());
+                                } else {
+                                    utility.showDialog(apierror.getMessage());
+                                }
                             }
                         } catch (Exception ex) {
                             utility.logger(ex.toString());
@@ -278,7 +303,13 @@ public class ProductDetails extends Fragment {
                             if (response.isSuccessful() && response != null && response.code() == 200) {
                                 showDialog(getResources().getString(R.string.order_suc_string));
                             } else {
-                                utility.showDialog(getResources().getString(R.string.try_again_string));
+                                Gson gson = new Gson();
+                                GET_APIERROR apierror = gson.fromJson(response.body(), GET_APIERROR.class);
+                                if (apierror != null) {
+                                    utility.showDialog(apierror.getMessage());
+                                } else {
+                                    utility.showDialog(apierror.getMessage());
+                                }
                             }
                         } catch (Exception ex) {
                             utility.logger(ex.toString());

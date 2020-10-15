@@ -19,7 +19,7 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="10dp"
                 android:contentDescription="@string/regis_string"
-                android:src="@drawable/ic_appicon" />
+                android:src="@drawable/ic_icon_black" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"

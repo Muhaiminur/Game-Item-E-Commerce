@@ -24,6 +24,7 @@ import com.gaming_resourcesbd.gamingresources.HTTP.ApiClient;
 import com.gaming_resourcesbd.gamingresources.HTTP.ApiInterface;
 import com.gaming_resourcesbd.gamingresources.LIBRARY.KeyWord;
 import com.gaming_resourcesbd.gamingresources.LIBRARY.Utility;
+import com.gaming_resourcesbd.gamingresources.MODEL.GET_APIERROR;
 import com.gaming_resourcesbd.gamingresources.MODEL.GET_USER;
 import com.gaming_resourcesbd.gamingresources.MODEL.SEND_FORGET;
 import com.gaming_resourcesbd.gamingresources.MODEL.SEND_REGISTRATION;
@@ -118,7 +119,13 @@ public class LoginPage extends Fragment {
                                     showDialog(context.getResources().getString(R.string.login_suc_string));
                                 }
                             } else {
-                                utility.showDialog(getResources().getString(R.string.login_unsuc_string));
+                                Gson gson = new Gson();
+                                GET_APIERROR apierror = gson.fromJson(response.body(), GET_APIERROR.class);
+                                if (apierror != null) {
+                                    utility.showDialog(apierror.getMessage());
+                                } else {
+                                    utility.showDialog(context.getResources().getString(R.string.login_unsuc_string));
+                                }
                             }
                         } catch (Exception ex) {
                             utility.logger(ex.toString());
@@ -155,7 +162,13 @@ public class LoginPage extends Fragment {
                             if (response.isSuccessful() && response != null && response.code() == 200) {
                                 utility.showDialog(getResources().getString(R.string.forget_suc_string));
                             } else {
-                                utility.showDialog(getResources().getString(R.string.forget_unsuc_string));
+                                Gson gson = new Gson();
+                                GET_APIERROR apierror = gson.fromJson(response.body(), GET_APIERROR.class);
+                                if (apierror != null) {
+                                    utility.showDialog(apierror.getMessage());
+                                } else {
+                                    utility.showDialog(context.getResources().getString(R.string.forget_unsuc_string));
+                                }
                             }
                         } catch (Exception ex) {
                             utility.logger(ex.toString());

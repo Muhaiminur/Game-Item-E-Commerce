@@ -20,6 +20,7 @@ import com.gaming_resourcesbd.gamingresources.ADAPTER.SubCategoryAdapter;
 import com.gaming_resourcesbd.gamingresources.HTTP.ApiClient;
 import com.gaming_resourcesbd.gamingresources.HTTP.ApiInterface;
 import com.gaming_resourcesbd.gamingresources.LIBRARY.Utility;
+import com.gaming_resourcesbd.gamingresources.MODEL.GET_APIERROR;
 import com.gaming_resourcesbd.gamingresources.MODEL.GET_SUBCATEGORY;
 import com.gaming_resourcesbd.gamingresources.MODEL.SEND_SUBCATEGORY;
 import com.gaming_resourcesbd.gamingresources.R;
@@ -96,7 +97,13 @@ public class SubCategoryFragment extends Fragment {
                                     subCategoryBinding.subcatRecyclerview.setAdapter(subCategoryAdapter);
                                 }
                             } else {
-                                utility.showDialog(getResources().getString(R.string.try_again_string));
+                                Gson gson = new Gson();
+                                GET_APIERROR apierror = gson.fromJson(response.body(), GET_APIERROR.class);
+                                if (apierror != null) {
+                                    utility.showDialog(apierror.getMessage());
+                                } else {
+                                    utility.showDialog(apierror.getMessage());
+                                }
                             }
                         } catch (Exception ex) {
                             utility.logger(ex.toString());

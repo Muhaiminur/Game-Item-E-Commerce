@@ -66,7 +66,8 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
-                android:padding="5dp">
+                android:padding="5dp"
+                android:id="@+id/order_input1_hint">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/order_input1"
@@ -83,7 +84,8 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
-                android:padding="5dp">
+                android:padding="5dp"
+                android:id="@+id/order_input2_hint">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/order_input2"
