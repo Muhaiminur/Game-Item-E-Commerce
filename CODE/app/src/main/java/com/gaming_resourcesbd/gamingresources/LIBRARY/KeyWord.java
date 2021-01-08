@@ -21,6 +21,7 @@ public class KeyWord {
     //
     public static final String INAGAME = "ingame";
     public static final String UID = "uid";
+    public static final String CARD = "card";
 
     public static final String NOTIFICATION_CHANNEL_NAME = "Gaming Resources";
     public static final int NOTIFICATION_ID = 785;

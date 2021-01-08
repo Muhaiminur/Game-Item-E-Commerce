@@ -66,5 +66,13 @@ public interface ApiInterface {
     @GET("sliders")
     Call<JsonElement> Get_Banner_data();
 
+    //12 get notice
+    @GET("app-notice")
+    Call<JsonElement> Get_notice();
+
+    //13 get payment
+    @GET("payment-methods")
+    Call<JsonElement> Get_payment_methods();
+
 
 }

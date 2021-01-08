@@ -20,6 +20,7 @@ import com.gaming_resourcesbd.gamingresources.LIBRARY.Utility;
 import com.gaming_resourcesbd.gamingresources.MODEL.Banner_Data;
 import com.gaming_resourcesbd.gamingresources.MODEL.GET_APIERROR;
 import com.gaming_resourcesbd.gamingresources.MODEL.GET_CATEGORY2;
+import com.gaming_resourcesbd.gamingresources.MODEL.GET_NOTICE;
 import com.gaming_resourcesbd.gamingresources.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -161,6 +162,53 @@ public class LandingPage extends AppCompatActivity {
                                 if (get_banner.size() > 0) {
                                     utility.clearBANNER();
                                     utility.setBANNER(gson.toJson(get_banner));
+                                }
+                                /*startActivity(new Intent(LandingPage.this, MainActivity.class));
+                                finish();*/
+                                initial_notice();
+                            } else {
+                                Gson gson = new Gson();
+                                GET_APIERROR apierror = gson.fromJson(response.body(), GET_APIERROR.class);
+                                if (apierror != null) {
+                                    utility.showDialog(apierror.getMessage());
+                                } else {
+                                    utility.showDialog(apierror.getMessage());
+                                }
+                            }
+                        } catch (Exception ex) {
+                            utility.logger(ex.toString());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<JsonElement> call, Throwable t) {
+                        utility.logger(t.toString());
+                        utility.showToast(getResources().getString(R.string.try_again_string));
+                    }
+                });
+            } else {
+                utility.showDialog(getResources().getString(R.string.no_internet_string));
+            }
+        } catch (Exception e) {
+            Log.d("Error Line Number", Log.getStackTraceString(e));
+        }
+    }
+
+    private void initial_notice() {
+        try {
+            if (utility.isNetworkAvailable()) {
+                Call<JsonElement> call = apiInterface.Get_notice();
+                call.enqueue(new Callback<JsonElement>() {
+                    @Override
+                    public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+                        try {
+                            utility.logger("LAND GET notice" + response.toString());
+                            if (response.isSuccessful() && response != null && response.code() == 200) {
+                                GET_NOTICE get_notice = gson.fromJson(response.body(), GET_NOTICE.class);
+                                utility.logger("LAND GET notice 1" + get_notice.toString());
+                                if (get_notice != null ) {
+                                    utility.clearNOTICE();
+                                    utility.setNOTICE(gson.toJson(get_notice));
                                 }
                                 startActivity(new Intent(LandingPage.this, MainActivity.class));
                                 finish();

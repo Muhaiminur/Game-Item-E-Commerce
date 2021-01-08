@@ -330,6 +330,23 @@ public class Utility {
         sharedPref.edit().clear().commit();
     }
 
+    public void setNOTICE(String token) {
+        SharedPreferences sharedPref = context.getSharedPreferences("NOTICE", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("NOTICE_list", token);
+        editor.commit();
+    }
+
+    public String getNOTICE() {
+        SharedPreferences sharedPref = context.getSharedPreferences("NOTICE", Context.MODE_PRIVATE);
+        return sharedPref.getString("NOTICE_list", "");
+    }
+
+    public void clearNOTICE() {
+        SharedPreferences sharedPref = context.getSharedPreferences("NOTICE", Context.MODE_PRIVATE);
+        sharedPref.edit().clear().commit();
+    }
+
     public void setFirebaseToken(String token) {
         SharedPreferences sharedPref = context.getSharedPreferences("FCM", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();

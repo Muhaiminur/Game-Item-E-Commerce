@@ -41,6 +41,7 @@ import com.gaming_resourcesbd.gamingresources.LIBRARY.Utility;
 import com.gaming_resourcesbd.gamingresources.MODEL.Banner_Data;
 import com.gaming_resourcesbd.gamingresources.MODEL.GET_CATEGORY;
 import com.gaming_resourcesbd.gamingresources.MODEL.GET_CATEGORY2;
+import com.gaming_resourcesbd.gamingresources.MODEL.GET_NOTICE;
 import com.gaming_resourcesbd.gamingresources.MODEL.GET_SUBCATEGORY;
 import com.gaming_resourcesbd.gamingresources.MODEL.SEND_SUBCATEGORY;
 import com.gaming_resourcesbd.gamingresources.R;
@@ -70,6 +71,7 @@ public class HomeFragment extends Fragment {
     List<Banner_Data> banner_list = new ArrayList<>();
     String cat_string = "";
     String ban_string = "";
+    String notice_string = "";
 
     public static String FACEBOOK_URL = "https://www.facebook.com/gamingro2/";
     public static String FACEBOOK_PAGE_ID = "103892414684669";
@@ -83,6 +85,7 @@ public class HomeFragment extends Fragment {
                 gson = new Gson();
                 cat_string = utility.getCATEGORY();
                 ban_string = utility.getBANNER();
+                notice_string = utility.getNOTICE();
                 if (!TextUtils.isEmpty(cat_string)) {
                     initial_category();
                 }
@@ -91,6 +94,16 @@ public class HomeFragment extends Fragment {
                     initial_banner();
                 } else {
                     utility.logger("banner painai");
+                }
+                if (!TextUtils.isEmpty(notice_string)) {
+                    GET_NOTICE getNotice = gson.fromJson(notice_string, GET_NOTICE.class);
+                    utility.logger("notice paisi"+ getNotice.toString());
+                    if (getNotice.getShowAppNotice()) {
+                        homeBinding.homeNotice.setVisibility(View.VISIBLE);
+                        homeBinding.homeNotice.setText(getNotice.getAppNotice());
+                    }
+                } else {
+                    utility.logger("notice painai");
                 }
                 if (banner_adapter != null) {
                     homeBinding.homeBanner.setCustomIndicator(homeBinding.customIndicator);

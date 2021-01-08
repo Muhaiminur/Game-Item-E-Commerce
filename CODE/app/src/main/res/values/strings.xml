@@ -7,7 +7,7 @@
     <string name="menu_login">Login</string>
     <string name="menu_user">User Profile</string>
 
-    <string name="confirm_string">CONFIRM</string>
+    <string name="confirm_string">Confirm</string>
     <string name="no_string">No</string>
     <string name="ok_string">OK</string>
     <string name="wait_string">Loading..</string>
@@ -44,8 +44,9 @@
     <string name="forget_unsuc_string">Please Enter a Valid Email</string>
     <string name="order_login_string">Please Login to your account</string>
     <string name="order_product_string">Please Select a product</string>
-    <string name="order_mbl_string">Enter a Payment Mobile Number</string>
-    <string name="order_tarn_string"><!--Transaction id and Reference name-->Enter last 4 digit</string>
+    <string name="order_mbl_string">Enter Your Payment Number</string>
+    <string name="order_tarn_string"><!--Transaction id and Reference name-->
+        Enter last 4 digit</string>
     <string name="order_msg_string">Payment method and message</string>
     <string name="order_ingame1_string">Enter Email or Facebook Id</string>
     <string name="order_ingame2_string">Enter Password</string>
@@ -55,6 +56,7 @@
 
     <string name="update_string">Update Profile</string>
     <string name="update_suc_string">Profile Update Complete</string>
+    <string name="payment_choose_string">Choose Payment Type</string>
     <string name="payment_how_string"><u>If you dont know how to pay,Click Here</u></string>
     <string name="logout_string">LOG OUT</string>
     <string name="logout_confirm_string">Are You sure?</string>
@@ -62,6 +64,7 @@
     <string name="msg_string">Message Us</string>
     <string name="privacy_policy_string">Privacy Policy</string>
     <string name="no_browser_string">No Browser Found to Open Link</string>
+    <string name="card_email_string">Enter your delivery email</string>
 
 
     <string name="default_notification_channel_id">Game_NOTIFICATION</string>
